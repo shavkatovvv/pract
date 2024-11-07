@@ -2,13 +2,19 @@ import { createApi } from "@reduxjs/toolkit/query/react";
 import { createBaseQuery } from "../../config/create-bace-query";
 
 export const phoneApi = createApi({
-  reducerPath: "phone_api",
-  baseQuery: createBaseQuery(),
-  endpoints: (build) => ({
-    getPhones: build.query({
-      query: () => "/phones",
+    reducerPath: "phone_api",
+    baseQuery: createBaseQuery(),
+    endpoints: (build) => ({
+        getPhones: build.query({
+            query: (data) => {
+                return {
+                    url: "/phones",
+                    method: "GET",
+                    body: data,
+                };
+            },
+        }),
     }),
-  }),
 });
 
 export const { useGetPhonesQuery } = phoneApi;

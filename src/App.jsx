@@ -4,6 +4,7 @@ import { Routes, Route } from "react-router-dom";
 import { Register } from "./pages/register";
 import { Login } from "./pages/login";
 import { UsersCard } from "./components/users";
+import { Phones } from "./components/phones";
 
 function App() {
     const { data, isLoading } = useGetPhonesQuery();
@@ -17,6 +18,7 @@ function App() {
                     <Route index element={<UsersCard />} />
                 </Route>
             </Routes>
+            {/* <Phones /> */}
         </>
     );
 }
